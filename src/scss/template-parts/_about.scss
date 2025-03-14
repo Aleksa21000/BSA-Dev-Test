@@ -1,0 +1,367 @@
+.about {
+  @extend %site-wrapper;
+
+  position: relative;
+  padding: rem-calc(40) rem-calc(14) rem-calc(80);
+  color: $color-mediumgray;
+
+  @include mq($phone, min) {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  @include mq($phone-small, min) {
+    padding: rem-calc(35) rem-calc(60) rem-calc(80);
+  }
+
+  @include mq($tablet, min) {
+    padding: rem-calc(45) rem-calc(100) rem-calc(100);
+  }
+
+  @include mq($desktop-small, min) {
+    padding: rem-calc(56) rem-calc(140) rem-calc(140);
+  }
+
+  @include mq($desktop-medium, min) {
+    padding: rem-calc(76) rem-calc(180) rem-calc(160);
+  }
+
+  @include mq($desktop-large, min) {
+    padding: rem-calc(96) rem-calc(260) rem-calc(180) rem-calc(268);
+  }
+
+  .about-decoration {
+    @extend %text-decoration--left;
+
+    @include mq($phone) {
+      top: rem-calc(400);
+      left: 98%;
+    }
+
+    @include mq(470px) {
+      left: 96.5%;
+    }
+
+    @include mq($phone, min) {
+      top: rem-calc(8);
+    }
+
+    @include mq($tablet, min) {
+      top: rem-calc(10);
+    }
+
+    @include mq($desktop-medium, min) {
+      top: rem-calc(12);
+    }
+
+    &__label {
+      @extend %text-decoration__label--light;
+
+      &-inner {
+        @extend %text-decoration__label-inner--light;
+      }
+    }
+
+    &__number {
+      @extend %text-decoration__number--light;
+    }
+  }
+
+  .about-content {
+    @extend %mobile-max-wrapper;
+
+    position: relative;
+    z-index: 2;
+
+    @include mq($phone, min) {
+      width: 35%;
+    }
+
+    @include mq($tablet, min) {
+      width: 30%;
+    }
+
+    @include mq($desktop-small, min) {
+      width: 26%;
+    }
+
+    &__picture {
+      @extend %site-picture;
+      @include ratio(293, 338);
+
+      width: 100%;
+      max-height: rem-calc(350);
+      margin-bottom: rem-calc(40);
+
+      @include mq($phone, min) {
+        max-height: none;
+      }
+
+      @include mq($tablet, min) {
+        margin-bottom: rem-calc(60);
+      }
+
+      @include mq($desktop-small, min) {
+        margin-bottom: rem-calc(80);
+      }
+    }
+
+    &__image {
+      @extend %image__cover;
+    }
+
+    .about-header {
+      margin-bottom: rem-calc(28);
+
+      &__subtitle {
+        @extend %header__subtitle--dark;
+
+        @include mq($desktop-small, min) {
+          margin-bottom: rem-calc(18);
+        }
+
+        @include mq($desktop-medium, min) {
+          margin-bottom: rem-calc(22);
+        }
+
+        @include mq($desktop-large, min) {
+          margin-bottom: rem-calc(26);
+        }
+      }
+
+      &__title {
+        @extend %header__title--dark;
+
+        @include mq($tablet, min) {
+          margin-bottom: rem-calc(20);
+        }
+
+        @include mq($desktop-small, min) {
+          margin-bottom: rem-calc(28);
+        }
+
+        @include mq($desktop-medium, min) {
+          margin-bottom: rem-calc(34);
+        }
+
+        @include mq($desktop-large, min) {
+          margin-bottom: rem-calc(42);
+        }
+      }
+    }
+
+    &__featured {
+      @extend %content__featured--dark;
+      margin-bottom: rem-calc(10);
+
+      @include mq($phone, min) {
+        margin-bottom: rem-calc(14);
+      }
+
+      @include mq($tablet, min) {
+        margin-bottom: rem-calc(18);
+      }
+
+      @include mq($desktop-small, min) {
+        margin-bottom: rem-calc(22);
+      }
+
+      @include mq($desktop-medium, min) {
+        margin-bottom: rem-calc(26);
+      }
+    }
+
+    &__text {
+      margin-bottom: rem-calc(26);
+
+      @include mq($phone, min) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .about-cards {
+    @extend %mobile-max-wrapper;
+
+    @include mq($phone, min) {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 56%;
+      padding-top: rem-calc(20);
+    }
+
+    @include mq($desktop-small, min) {
+      padding-top: rem-calc(40);
+    }
+
+    @include mq($desktop-medium, min) {
+      padding-top: rem-calc(40);
+    }
+
+    .card-item {
+      @include mq($phone, min) {
+        width: 45%;
+      }
+
+      @include mq($desktop-small, min) {
+        width: 47%;
+        margin-bottom: rem-calc(52);
+      }
+
+      @include mq($desktop-medium, min) {
+        margin-bottom: rem-calc(66);
+      }
+
+      @include mq($desktop-large, min) {
+        margin-bottom: rem-calc(84);
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        @include mq($phone, min) {
+          top: rem-calc(100);
+        }
+
+        @include mq($tablet, min) {
+          top: rem-calc(110);
+        }
+
+        @include mq($desktop-small, min) {
+          top: rem-calc(125);
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.card-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  padding-right: rem-calc(35);
+  margin-bottom: rem-calc(44);
+
+  @include mq($phone, min) {
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &-decoration {
+    @extend %text-decoration__large--right;
+
+    top: rem-calc(84);
+    right: rem-calc(34);
+    z-index: 1;
+
+    @include mq($phone, min) {
+      top: 77%;
+      right: 100%;
+    }
+
+    @include mq($desktop-small, min) {
+      top: 87%;
+    }
+
+    &__text {
+      @extend %text-decoration__large-label--light;
+
+      font-size: rem-calc(42);
+
+      @include mq($tablet, min) {
+        font-size: rem-calc(46);
+      }
+
+      @include mq($desktop-small, min) {
+        font-size: rem-calc(48);
+      }
+
+      @include mq($desktop-medium, min) {
+        font-size: rem-calc(52);
+        letter-spacing: 4.7px;
+      }
+
+      @include mq($desktop-large, min) {
+        font-size: rem-calc(56);
+      }
+    }
+  }
+
+  &__icon {
+    position: relative;
+    z-index: 2;
+    order: 2;
+    width: rem-calc(46);
+    height: rem-calc(46);
+
+    @include mq($phone, min) {
+      order: 1;
+      margin-bottom: rem-calc(12);
+    }
+
+    @include mq($desktop-small, min) {
+      width: rem-calc(56);
+      height: rem-calc(56);
+      margin-bottom: rem-calc(18);
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    font-size: rem-calc(19);
+    font-family: $font-druk_wide;
+    letter-spacing: 0.53px;
+    color: $color-lightgray;
+    order: 1;
+
+    @include mq($phone, min) {
+      order: 2;
+    }
+
+    @include mq($desktop-small, min) {
+      font-size: rem-calc(22);
+      margin-bottom: rem-calc(18);
+    }
+
+    @include mq($desktop-large, min) {
+      font-size: rem-calc(28);
+    }
+
+    @include mq($desktop-large, min) {
+      font-size: rem-calc(32);
+      margin-bottom: rem-calc(24);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    order: 3;
+    font-size: rem-calc(12);
+    margin-top: 5px;
+
+    @include mq($tablet, min) {
+      font-size: rem-calc(14);
+      letter-spacing: 0.53px;
+    }
+  }
+}

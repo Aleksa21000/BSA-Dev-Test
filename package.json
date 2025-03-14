@@ -1,0 +1,54 @@
+{
+    "name": "frontend-dev-test",
+    "version": "1.1.0",
+    "description": "Frontend Dev Test",
+    "main": "index.js",
+    "bin": {
+        "gen": "src/cli.js"
+    },
+    "scripts": {
+        "dev": "concurrently \"webpack serve --config webpack.config.js --mode development\" \"php -S 0.0.0.0:8000 -t .\"",
+        "prod": "webpack --config webpack.config.js --mode production"
+    },
+    "author": "Blacksmith Agency",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/preset-env": "^7.16.11",
+        "@types/mini-css-extract-plugin": "^2.5.0",
+        "@types/postcss-preset-env": "^6.7.3",
+        "@types/three": "^0.138.0",
+        "babel-loader": "^8.2.3",
+        "clean-webpack-plugin": "^4.0.0",
+        "concurrently": "^7.3.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.7.1",
+        "extract-loader": "^5.1.0",
+        "file-loader": "^6.2.0",
+        "jsonfile": "^6.1.0",
+        "merge": "^2.1.1",
+        "mini-css-extract-plugin": "^2.6.0",
+        "minimist": "^1.2.5",
+        "pkg-dir": "^8.0.0",
+        "postcss": "^8.4.12",
+        "postcss-combine-media-query": "^1.0.1",
+        "postcss-loader": "^6.2.1",
+        "postcss-preset-env": "^7.4.2",
+        "postcss-sort-media-queries": "^4.2.1",
+        "sass": "^1.32.0",
+        "sass-loader": "^16.0.5",
+        "sass-resources-loader": "^2.2.4",
+        "style-loader": "^3.3.1",
+        "ts-loader": "^9.2.8",
+        "ts-shader-loader": "^1.0.6",
+        "typescript": "^4.6.2",
+        "webpack": "^5.98.0",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.0",
+        "webpack-remove-empty-scripts": "^0.7.3"
+    },
+    "dependencies": {
+        "@glidejs/glide": "^3.7.1",
+        "dotenv": "^16.0.0",
+        "three": "^0.138.3"
+    }
+}

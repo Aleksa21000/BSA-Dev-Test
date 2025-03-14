@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+    app:
+        build: .
+        container_name: frontend-dev
+        ports:
+            - "8080:8080" # Webpack Dev Server
+            - "8000:8000" # PHP-server
+        volumes:
+            - .:/app
+        environment:
+            - NODE_ENV=development
+            - TARGET_URL=http://app:8000
+        stdin_open: true
+        tty: true
+        command: npm run dev
+        networks:
+            - dev-network
+
+networks:
+    dev-network:
+        driver: bridge
