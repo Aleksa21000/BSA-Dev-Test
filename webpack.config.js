@@ -5,6 +5,10 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const targetUrl = process.env.TARGET_URL || "http://127.0.0.1:8000";
 
+function isReplit() {
+    return process.env.REPL_SLUG && process.env.REPL_OWNER;
+}
+
 module.exports = (env, argv) => {
     const isDev = argv.mode === "development";
 
@@ -94,6 +98,9 @@ module.exports = (env, argv) => {
                 },
             ],
             client: {
+                webSocketURL: isReplit()
+                    ? `wss://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co/ws`
+                    : undefined,
                 overlay: {
                     warnings: false,
                     errors: true,

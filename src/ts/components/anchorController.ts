@@ -4,6 +4,8 @@ const anchorController = () => {
     const sections = document.querySelectorAll(".js-section")! as NodeListOf<HTMLElement>;
     const navigation = document.querySelector("#navigation")! as HTMLDivElement;
 
+    const getSectionOffset = (section: HTMLElement) => section.offsetTop - 60;
+
     const scrollToTarget = (element: HTMLElement, top: number) => {
         if (!element) return;
         element.addEventListener("click", (e: Event) => {
@@ -19,16 +21,25 @@ const anchorController = () => {
         });
     };
 
-    links.forEach((link) => {
-        const dataName = link.parentElement.getAttribute("data-name");
-        sections.forEach((section) => {
-            const sectionID = section.id;
+    const updateOffsets = () => {
+        links.forEach((link) => {
+            const dataName = link.parentElement.getAttribute("data-name");
+            sections.forEach((section) => {
+                const sectionID = section.id;
 
-            if (dataName === sectionID) scrollToTarget(link, section.offsetTop - 60);
+                if (dataName === sectionID) {
+                    scrollToTarget(link, getSectionOffset(section));
+                }
+            });
         });
-    });
+    };
 
+    updateOffsets();
     scrollToTarget(btn, 0);
+
+    window.addEventListener("resize", () => {
+        updateOffsets();
+    });
 };
 
 export default anchorController;
